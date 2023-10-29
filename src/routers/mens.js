@@ -1,7 +1,7 @@
 const express = require("express")
 const router = new express.Router()
 const AtheletsRankings = require("../../src/models/athletes")
-// making a post request
+//  post request route
 router.post("/mens", async (req,res)=>{
     try {
         console.log(req.body)
@@ -12,7 +12,7 @@ router.post("/mens", async (req,res)=>{
         res.status(400).send(error)
     }
 })
-
+//get request route
 router.get("/mens", async (req,res)=>{
     try {
        const getMens  = await  AtheletsRankings.find({}).sort({"ranking":1})
@@ -21,6 +21,7 @@ router.get("/mens", async (req,res)=>{
         res.status(400).send(error)
     }
 })
+//id get route
 router.get("/mens/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
@@ -30,6 +31,7 @@ router.get("/mens/:id", async (req,res)=>{
         res.status(400).send(error)
     }
 })
+//update request route
 router.patch("/mens/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
@@ -41,6 +43,7 @@ router.patch("/mens/:id", async (req,res)=>{
         res.status(500).send(error)
     }
 })
+//delete request route
 router.delete("/mens/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
