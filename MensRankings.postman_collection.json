@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "d96b5c79-1112-47a9-a632-624ebbf1cfc1",
+		"name": "MensRankings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30814245"
+	},
+	"item": [
+		{
+			"name": "postmens",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"ranking\":2,\r\n     \"name\":\"md3\",\r\n     \"dob\":\"27/01/1992\",\r\n     \"country\":\"CANADA\",\r\n     \"score\":400\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/mens",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getmens",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/mens",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getmensById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/mens/653e3ce872f37b4aae8a5952",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mens",
+						"653e3ce872f37b4aae8a5952"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateById",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"cole\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/mens/653e3ce872f37b4aae8a5952",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mens",
+						"653e3ce872f37b4aae8a5952"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/mens/653e3e19a490d5b9ee74356c",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mens",
+						"653e3e19a490d5b9ee74356c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

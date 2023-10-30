@@ -1,6 +1,6 @@
 const express = require("express")
 require("../src/db/conn")
-const AtheletsRankings = require("../src/models/athletes")
+// const AtheletsRankings = require("../src/models/athletes")
 const router = require("./routers/mens")
 const app = express()
 const port = process.env.PORT || 3000
