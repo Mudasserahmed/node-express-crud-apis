@@ -7,7 +7,7 @@ router.post("/mens", async (req,res)=>{
         console.log(req.body)
         const addingMensRanking = new AtheletsRankings(req.body)
        const insertMens  = await  addingMensRanking.save()
-       res.status(201).send(insertMens)
+       res.status(201).json({status:true,message:"new record added",data:insertMens})
     } catch (error) {
         res.status(400).send(error)
     }
@@ -16,7 +16,7 @@ router.post("/mens", async (req,res)=>{
 router.get("/mens", async (req,res)=>{
     try {
        const getMens  = await  AtheletsRankings.find({}).sort({"ranking":1})
-       res.status(201).send(getMens)
+       res.status(201).json({ success: true, data: getMens })
     } catch (error) {
         res.status(400).send(error)
     }
@@ -35,10 +35,10 @@ router.get("/mens/:id", async (req,res)=>{
 router.patch("/mens/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
-       const getMens  = await  AtheletsRankings.findByIdAndUpdate(_id,req.body,{
+       const getMensUpdated  = await  AtheletsRankings.findByIdAndUpdate(_id,req.body,{
         new : true  
        })
-       res.send(getMens)
+       res.json({success:true,message:"record updated",data:getMensUpdated})
     } catch (error) {
         res.status(500).send(error)
     }
@@ -48,7 +48,7 @@ router.delete("/mens/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
        const getMens  = await  AtheletsRankings.findByIdAndDelete(_id)
-       res.send(getMens)
+       res.json({success:true,message:"record deleted"})
     } catch (error) {
         res.status(500).send(error)
     }
