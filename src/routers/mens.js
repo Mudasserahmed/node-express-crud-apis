@@ -2,7 +2,7 @@ const express = require("express")
 const router = new express.Router()
 const AtheletsRankings = require("../../src/models/athletes")
 //  post request route
-router.post("/mens", async (req,res)=>{
+router.post("/addmens", async (req,res)=>{
     try {
         console.log(req.body)
         const addingMensRanking = new AtheletsRankings(req.body)
