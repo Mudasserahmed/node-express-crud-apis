@@ -2,7 +2,7 @@ const express = require("express")
 const router = new express.Router()
 const AtheletsRankings = require("../../src/models/athletes")
 //  post request route
-router.post("/addmens", async (req,res)=>{
+router.post("api/addmens", async (req,res)=>{
     try {
         console.log(req.body)
         const addingMensRanking = new AtheletsRankings(req.body)
@@ -13,7 +13,7 @@ router.post("/addmens", async (req,res)=>{
     }
 })
 //get request route
-router.get("/mens", async (req,res)=>{
+router.get("api/mens", async (req,res)=>{
     try {
        const getMens  = await  AtheletsRankings.find({}).sort({"ranking":1})
        res.status(201).json({ success: true, data: getMens })
@@ -22,7 +22,7 @@ router.get("/mens", async (req,res)=>{
     }
 })
 //id get route
-router.get("/mens/:id", async (req,res)=>{
+router.get("api/mens/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
        const getMens  = await  AtheletsRankings.findById(_id)
@@ -32,7 +32,7 @@ router.get("/mens/:id", async (req,res)=>{
     }
 })
 //update request route
-router.patch("/mens/:id", async (req,res)=>{
+router.patch("api/mens/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
        const getMensUpdated  = await  AtheletsRankings.findByIdAndUpdate(_id,req.body,{
@@ -44,7 +44,7 @@ router.patch("/mens/:id", async (req,res)=>{
     }
 })
 //delete request route
-router.delete("/mens/:id", async (req,res)=>{
+router.delete("api/mens/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
        const getMens  = await  AtheletsRankings.findByIdAndDelete(_id)
