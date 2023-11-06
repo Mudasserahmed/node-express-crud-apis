@@ -2,7 +2,7 @@ const  express = require("express")
 const coachesModel = require("../../src/models/coaches")
 const router = new express.Router()
 
-router.post("api/addcoach" ,async (req,res)=>{
+router.post("/api/addcoach" ,async (req,res)=>{
   try {
     console.log(req.body)
     const addingNewCoach = new coachesModel(req.body)
@@ -12,7 +12,7 @@ router.post("api/addcoach" ,async (req,res)=>{
     res.status(500).send(error)
   }
 })
-router.get("api/getallcoaches" , async (req,res)=>{
+router.get("/api/getallcoaches" , async (req,res)=>{
     try {
       const getcoaches = await coachesModel.find({})
       res.status(201).json({status:true,data:getcoaches})
@@ -20,7 +20,7 @@ router.get("api/getallcoaches" , async (req,res)=>{
       res.status(500).send(error)
     }
   })
-  router.patch("api/updatecoach/:id", async (req,res)=>{
+  router.patch("/api/updatecoach/:id", async (req,res)=>{
     try {
         const _id = req.params.id;
        const updatecoach  = await  coachesModel.findByIdAndUpdate(_id,req.body,{
@@ -32,7 +32,7 @@ router.get("api/getallcoaches" , async (req,res)=>{
     }
 })
 
-router.delete("api/deletecoach/:id",async (req,res)=>{
+router.delete("/api/deletecoach/:id",async (req,res)=>{
     try {
         const _id = req.params.id
         const deletecoach = await coachesModel.findByIdAndDelete(_id,req.body,{
