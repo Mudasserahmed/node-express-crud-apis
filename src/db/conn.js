@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
-
-mongoose.connect("mongodb://0.0.0.0:27017/TeamRecords", {
+const dotenv = require("dotenv")
+dotenv.config({path:"./config.env"})
+console.log(process.env.DATABASE_LOCAL)
+mongoose.connect(process.env.DATABASE_LOCAL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     autoCreate: true 
