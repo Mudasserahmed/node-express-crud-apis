@@ -17,7 +17,7 @@ router.post("/api/addmens", async (req,res)=>{
 router.get("/api/mens", async (req,res)=>{
     try {
        const getMens  = await  AtheletsRankings.find({}).sort({"ranking":1})
-       res.status(201).json({ success: true,results:getMens.length, data: getMens })
+       res.status(201).json({ success: true,createdAt:req.requestTime,results:getMens.length, data: getMens })
     } catch (error) {
         res.status(400).send(error)
     }
